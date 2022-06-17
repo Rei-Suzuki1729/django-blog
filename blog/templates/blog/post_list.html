@@ -5,7 +5,10 @@
 {% for post in posts %}
   {% if post.is_published or user.is_authenticated %}
     <div class="card w-75 mt-3 mx-auto">
-      <div class="card-body">
+      {% if post.image %}
+      <image src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+      {% endif %}
+        <div class="card-body">
         {% if not post.is_published %}
           <span class="badge bg-danger">下書き</span>
         {% endif %}
